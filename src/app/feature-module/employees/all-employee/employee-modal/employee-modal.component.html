@@ -1,0 +1,372 @@
+<!-- Add Employee Modal -->
+<div id="add_employee" class="modal custom-modal fade" role="dialog">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Add Employee</h5>
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form  [formGroup]="addEmployeeForm">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="col-form-label">First Name <span class="text-danger">*</span></label>
+                                <input class="form-control" type="text"
+                                    [class.invalid]="addEmployeeForm.get('FirstName').invalid && addEmployeeForm.get('FirstName').touched"
+                                    formControlName="FirstName">
+                                <div
+                                    *ngIf="addEmployeeForm.get('FirstName').invalid && addEmployeeForm.get('FirstName').touched">
+                                    <small
+                                        *ngIf="addEmployeeForm.get('FirstName').invalid && addEmployeeForm.get('FirstName').touched"
+                                        class="text-danger"> *Firstname is required</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="col-form-label">Last Name</label>
+                                <input class="form-control" type="text"
+                                    [class.invalid]="addEmployeeForm.get('LastName').invalid && addEmployeeForm.get('LastName').touched"
+                                    formControlName="LastName">
+                                <div
+                                    *ngIf="addEmployeeForm.get('LastName').invalid && addEmployeeForm.get('LastName').touched">
+                                    <small
+                                        *ngIf="addEmployeeForm.get('LastName').invalid && addEmployeeForm.get('LastName').touched"
+                                        class="text-danger"> *Lastname is required</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="col-form-label">Username <span class="text-danger">*</span></label>
+                                <input class="form-control" type="text"
+                                    [class.invalid]="addEmployeeForm.get('UserName').invalid && addEmployeeForm.get('UserName').touched"
+                                    formControlName="UserName">
+                                <div
+                                    *ngIf="addEmployeeForm.get('UserName').invalid && addEmployeeForm.get('UserName').touched">
+                                    <small
+                                        *ngIf="addEmployeeForm.get('UserName').invalid && addEmployeeForm.get('UserName').touched"
+                                        class="text-danger"> *Username is required</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="col-form-label">Resume</label>
+                                <input class="form-control" type="file">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="col-form-label">Employee Application</label>
+                                <input class="form-control" type="file">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="col-form-label">HR Paper Work</label>
+                                <input class="form-control" type="file">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="col-form-label">Marital Status <span class="text-danger">*</span></label>
+                                <select class="form-select form-control"
+                                [class.invalid]="addEmployeeForm.get('CompanyName').invalid && addEmployeeForm.get('CompanyName').touched"
+                                formControlName="CompanyName">
+                                <option value="">Single</option>
+                                <option value="1">Married</option>
+                            </select>
+                            <div
+                                *ngIf="addEmployeeForm.get('CompanyName').invalid && addEmployeeForm.get('CompanyName').touched">
+                                <small
+                                    *ngIf="addEmployeeForm.get('CompanyName').invalid && addEmployeeForm.get('CompanyName').touched"
+                                    class="text-danger"> Company Name required</small>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="col-form-label">Skill Set </label>
+                                <select class="form-select form-control"
+                                [class.invalid]="addEmployeeForm.get('CompanyName').invalid && addEmployeeForm.get('CompanyName').touched"
+                                formControlName="CompanyName">
+                                <option value="">Java</option>
+                                <option value="1">C Sharp</option>
+                            </select>
+                            <div
+                                *ngIf="addEmployeeForm.get('CompanyName').invalid && addEmployeeForm.get('CompanyName').touched">
+                                <small
+                                    *ngIf="addEmployeeForm.get('CompanyName').invalid && addEmployeeForm.get('CompanyName').touched"
+                                    class="text-danger"> Company Name required</small>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="col-form-label">Clearance</label>
+                                <select class="form-select form-control"
+                                    [class.invalid]="addEmployeeForm.get('CompanyName').invalid && addEmployeeForm.get('CompanyName').touched"
+                                    formControlName="CompanyName">
+                                    <option value="">Pending</option>
+                                    <option value="1">Clear</option>
+                                </select>
+                                <div
+                                    *ngIf="addEmployeeForm.get('CompanyName').invalid && addEmployeeForm.get('CompanyName').touched">
+                                    <small
+                                        *ngIf="addEmployeeForm.get('CompanyName').invalid && addEmployeeForm.get('CompanyName').touched"
+                                        class="text-danger"> Company Name required</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Department <span class="text-danger">*</span></label>
+                                <select class="form-select form-control"
+                                    [class.invalid]="addEmployeeForm.get('DepartmentName').invalid && addEmployeeForm.get('DepartmentName').touched"
+                                    formControlName="DepartmentName">
+                                    <option>Select Department</option>
+                                    <option>Web Development</option>
+                                    <option>IT Management</option>
+                                    <option>Marketing</option>
+                                </select>
+                                <div
+                                    *ngIf="addEmployeeForm.get('DepartmentName').invalid && addEmployeeForm.get('DepartmentName').touched">
+                                    <small
+                                        *ngIf="addEmployeeForm.get('DepartmentName').invalid && addEmployeeForm.get('DepartmentName').touched"
+                                        class="text-danger"> *Department Name required</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Designation <span class="text-danger">*</span></label>
+                                <select class="form-select form-control"
+                                    [class.invalid]="addEmployeeForm.get('Designation').invalid && addEmployeeForm.get('Designation').touched"
+                                    formControlName="Designation">
+                                    <option>Select Designation</option>
+                                    <option>Web Designer</option>
+                                    <option>Web Developer</option>
+                                    <option>Android Developer</option>
+                                </select>
+                                <div
+                                    *ngIf="addEmployeeForm.get('Designation').invalid && addEmployeeForm.get('Designation').touched">
+                                    <small
+                                        *ngIf="addEmployeeForm.get('Designation').invalid && addEmployeeForm.get('Designation').touched"
+                                        class="text-danger"> *Designation Name required</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="submit-section">
+                        <button class="btn btn-primary submit-btn" type="submit">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /Add Employee Modal -->
+
+<!-- Edit Employee Modal -->
+<div id="edit_employee" class="modal custom-modal fade" role="dialog">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Edit Employee</h5>
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form  [formGroup]="addEmployeeForm">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="col-form-label">First Name <span class="text-danger">*</span></label>
+                                <input class="form-control" type="text"
+                                    [class.invalid]="addEmployeeForm.get('FirstName').invalid && addEmployeeForm.get('FirstName').touched"
+                                    formControlName="FirstName">
+                                <div
+                                    *ngIf="addEmployeeForm.get('FirstName').invalid && addEmployeeForm.get('FirstName').touched">
+                                    <small
+                                        *ngIf="addEmployeeForm.get('FirstName').invalid && addEmployeeForm.get('FirstName').touched"
+                                        class="text-danger"> *Firstname is required</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="col-form-label">Last Name</label>
+                                <input class="form-control" type="text"
+                                    [class.invalid]="addEmployeeForm.get('LastName').invalid && addEmployeeForm.get('LastName').touched"
+                                    formControlName="LastName">
+                                <div
+                                    *ngIf="addEmployeeForm.get('LastName').invalid && addEmployeeForm.get('LastName').touched">
+                                    <small
+                                        *ngIf="addEmployeeForm.get('LastName').invalid && addEmployeeForm.get('LastName').touched"
+                                        class="text-danger"> *Lastname is required</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="col-form-label">Username <span class="text-danger">*</span></label>
+                                <input class="form-control" type="text"
+                                    [class.invalid]="addEmployeeForm.get('UserName').invalid && addEmployeeForm.get('UserName').touched"
+                                    formControlName="UserName">
+                                <div
+                                    *ngIf="addEmployeeForm.get('UserName').invalid && addEmployeeForm.get('UserName').touched">
+                                    <small
+                                        *ngIf="addEmployeeForm.get('UserName').invalid && addEmployeeForm.get('UserName').touched"
+                                        class="text-danger"> *Username is required</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="col-form-label">Resume</label>
+                                <input class="form-control" type="file">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="col-form-label">Employee Application</label>
+                                <input class="form-control" type="file">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="col-form-label">HR Paper Work</label>
+                                <input class="form-control" type="file">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="col-form-label">Marital Status <span class="text-danger">*</span></label>
+                                <select class="form-select form-control"
+                                [class.invalid]="addEmployeeForm.get('CompanyName').invalid && addEmployeeForm.get('CompanyName').touched"
+                                formControlName="CompanyName">
+                                <option value="">Single</option>
+                                <option value="1">Married</option>
+                            </select>
+                            <div
+                                *ngIf="addEmployeeForm.get('CompanyName').invalid && addEmployeeForm.get('CompanyName').touched">
+                                <small
+                                    *ngIf="addEmployeeForm.get('CompanyName').invalid && addEmployeeForm.get('CompanyName').touched"
+                                    class="text-danger"> Company Name required</small>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="col-form-label">Skill Set </label>
+                                <select class="form-select form-control"
+                                [class.invalid]="addEmployeeForm.get('CompanyName').invalid && addEmployeeForm.get('CompanyName').touched"
+                                formControlName="CompanyName">
+                                <option value="">Java</option>
+                                <option value="1">C Sharp</option>
+                            </select>
+                            <div
+                                *ngIf="addEmployeeForm.get('CompanyName').invalid && addEmployeeForm.get('CompanyName').touched">
+                                <small
+                                    *ngIf="addEmployeeForm.get('CompanyName').invalid && addEmployeeForm.get('CompanyName').touched"
+                                    class="text-danger"> Company Name required</small>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="col-form-label">Clearance</label>
+                                <select class="form-select form-control"
+                                    [class.invalid]="addEmployeeForm.get('CompanyName').invalid && addEmployeeForm.get('CompanyName').touched"
+                                    formControlName="CompanyName">
+                                    <option value="">Pending</option>
+                                    <option value="1">Clear</option>
+                                </select>
+                                <div
+                                    *ngIf="addEmployeeForm.get('CompanyName').invalid && addEmployeeForm.get('CompanyName').touched">
+                                    <small
+                                        *ngIf="addEmployeeForm.get('CompanyName').invalid && addEmployeeForm.get('CompanyName').touched"
+                                        class="text-danger"> Company Name required</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Department <span class="text-danger">*</span></label>
+                                <select class="form-select form-control"
+                                    [class.invalid]="addEmployeeForm.get('DepartmentName').invalid && addEmployeeForm.get('DepartmentName').touched"
+                                    formControlName="DepartmentName">
+                                    <option>Select Department</option>
+                                    <option>Web Development</option>
+                                    <option>IT Management</option>
+                                    <option>Marketing</option>
+                                </select>
+                                <div
+                                    *ngIf="addEmployeeForm.get('DepartmentName').invalid && addEmployeeForm.get('DepartmentName').touched">
+                                    <small
+                                        *ngIf="addEmployeeForm.get('DepartmentName').invalid && addEmployeeForm.get('DepartmentName').touched"
+                                        class="text-danger"> *Department Name required</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Designation <span class="text-danger">*</span></label>
+                                <select class="form-select form-control"
+                                    [class.invalid]="addEmployeeForm.get('Designation').invalid && addEmployeeForm.get('Designation').touched"
+                                    formControlName="Designation">
+                                    <option>Select Designation</option>
+                                    <option>Web Designer</option>
+                                    <option>Web Developer</option>
+                                    <option>Android Developer</option>
+                                </select>
+                                <div
+                                    *ngIf="addEmployeeForm.get('Designation').invalid && addEmployeeForm.get('Designation').touched">
+                                    <small
+                                        *ngIf="addEmployeeForm.get('Designation').invalid && addEmployeeForm.get('Designation').touched"
+                                        class="text-danger"> *Designation Name required</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="submit-section">
+                        <button class="btn btn-primary submit-btn" type="submit">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /Edit Employee Modal -->
+
+<!-- Delete Employee Modal -->
+<div class="modal custom-modal fade" id="delete_employee" role="dialog">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="form-header">
+                    <h3>Delete Employee</h3>
+                    <p>Are you sure want to delete?</p>
+                </div>
+                <div class="modal-btn delete-action">
+                    <div class="row">
+                        <div class="col-6">
+                            <a class="btn btn-primary continue-btn"
+                                >Delete</a>
+                        </div>
+                        <div class="col-6">
+                            <a data-bs-dismiss="modal"
+                                class="btn btn-primary cancel-btn">Cancel</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /Delete Employee Modal -->

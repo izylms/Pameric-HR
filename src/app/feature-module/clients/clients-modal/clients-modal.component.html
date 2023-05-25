@@ -1,0 +1,272 @@
+<!-- Add Client Modal -->
+<div id="add_client" class="modal custom-modal fade" role="dialog">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Add Client</h5>
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="addClientForm">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label class="col-form-label">Client Image</label>
+                                <div class="d-flex align-items-center">
+                                    <div class="client-image-preview" (click)="selectImage()">
+                                        <img [src]="clientImagePreview || './assets/img/user.jpg'"
+                                            alt="Client Image Preview">
+                                    </div>
+                                    <input class="form-control" type="file" #fileInput style="display: none"
+                                        (change)="onImageChange($event)" accept="image/*">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-9">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="col-form-label">First Name <span
+                                                class="text-danger">*</span></label>
+                                        <input class="form-control" type="text"
+                                            [class.invalid]="addClientForm.get('clientName').invalid && addClientForm.get('clientName').touched"
+                                            formControlName="clientName">
+                                        <div
+                                            *ngIf="addClientForm.get('clientName').invalid && addClientForm.get('clientName').touched">
+                                            <small
+                                                *ngIf="addClientForm.get('clientName').invalid && addClientForm.get('clientName').touched"
+                                                class="text-danger"> *Name is required</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="col-form-label">Last Name</label>
+                                        <input class="form-control" type="text">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="col-form-label">Username</label>
+                                        <input class="form-control" type="text">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="col-form-label">Email <span class="text-danger">*</span></label>
+                                        <input class="form-control" type="text"
+                                            [class.invalid]="addClientForm.get('clientEmail').invalid && addClientForm.get('clientEmail').touched"
+                                            formControlName="clientEmail">
+                                        <div
+                                            *ngIf="addClientForm.get('clientEmail').invalid && addClientForm.get('clientEmail').touched">
+                                            <small
+                                                *ngIf="addClientForm.get('clientEmail').invalid && addClientForm.get('clientEmail').touched"
+                                                class="text-danger"> *Email is required</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="col-form-label">Password</label>
+                                        <input class="form-control" type="password">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="col-form-label">Confirm Password</label>
+                                        <input class="form-control" type="password">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="col-form-label">Phone <span class="text-danger"></span></label>
+                                        <input class="form-control" type="text"
+                                            [class.invalid]="addClientForm.get('clientPhone').invalid && addClientForm.get('clientPhone').touched"
+                                            formControlName="clientPhone">
+                                        <div
+                                            *ngIf="addClientForm.get('clientPhone').invalid && addClientForm.get('clientPhone').touched">
+                                            <small
+                                                *ngIf="addClientForm.get('clientPhone').invalid && addClientForm.get('clientPhone').touched"
+                                                class="text-danger"> *Phone is required</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="col-form-label">Company Name</label>
+                                        <input class="form-control" type="text"
+                                            [class.invalid]="addClientForm.get('clientCompany').invalid && addClientForm.get('clientCompany').touched"
+                                            formControlName="clientCompany">
+                                        <div
+                                            *ngIf="addClientForm.get('clientCompany').invalid && addClientForm.get('clientCompany').touched">
+                                            <small
+                                                *ngIf="addClientForm.get('clientCompany').invalid && addClientForm.get('clientCompany').touched"
+                                                class="text-danger"> *Company is required</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="submit-section">
+                        <button class="btn btn-primary submit-btn">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /Add Client Modal -->
+
+<!-- Edit Client Modal -->
+<div id="edit_client" class="modal custom-modal fade" role="dialog">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Edit Client</h5>
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="addClientForm">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label class="col-form-label">Client Image</label>
+                                <div class="d-flex align-items-center">
+                                    <div class="client-image-preview" (click)="selectImage()">
+                                        <img [src]="clientImagePreview || './assets/img/user.jpg'"
+                                            alt="Client Image Preview">
+                                    </div>
+                                    <input class="form-control" type="file" #fileInput style="display: none"
+                                        (change)="onImageChange($event)" accept="image/*">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-9">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="col-form-label">First Name <span
+                                                class="text-danger">*</span></label>
+                                        <input class="form-control" type="text"
+                                            [class.invalid]="addClientForm.get('clientName').invalid && addClientForm.get('clientName').touched"
+                                            formControlName="clientName">
+                                        <div
+                                            *ngIf="addClientForm.get('clientName').invalid && addClientForm.get('clientName').touched">
+                                            <small
+                                                *ngIf="addClientForm.get('clientName').invalid && addClientForm.get('clientName').touched"
+                                                class="text-danger"> *Name is required</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="col-form-label">Last Name</label>
+                                        <input class="form-control" type="text">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="col-form-label">Username</label>
+                                        <input class="form-control" type="text">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="col-form-label">Email <span class="text-danger">*</span></label>
+                                        <input class="form-control" type="text"
+                                            [class.invalid]="addClientForm.get('clientEmail').invalid && addClientForm.get('clientEmail').touched"
+                                            formControlName="clientEmail">
+                                        <div
+                                            *ngIf="addClientForm.get('clientEmail').invalid && addClientForm.get('clientEmail').touched">
+                                            <small
+                                                *ngIf="addClientForm.get('clientEmail').invalid && addClientForm.get('clientEmail').touched"
+                                                class="text-danger"> *Email is required</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="col-form-label">Password</label>
+                                        <input class="form-control" type="password">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="col-form-label">Confirm Password</label>
+                                        <input class="form-control" type="password">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="col-form-label">Phone <span class="text-danger"></span></label>
+                                        <input class="form-control" type="text"
+                                            [class.invalid]="addClientForm.get('clientPhone').invalid && addClientForm.get('clientPhone').touched"
+                                            formControlName="clientPhone">
+                                        <div
+                                            *ngIf="addClientForm.get('clientPhone').invalid && addClientForm.get('clientPhone').touched">
+                                            <small
+                                                *ngIf="addClientForm.get('clientPhone').invalid && addClientForm.get('clientPhone').touched"
+                                                class="text-danger"> *Phone is required</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="col-form-label">Company Name</label>
+                                        <input class="form-control" type="text"
+                                            [class.invalid]="addClientForm.get('clientCompany').invalid && addClientForm.get('clientCompany').touched"
+                                            formControlName="clientCompany">
+                                        <div
+                                            *ngIf="addClientForm.get('clientCompany').invalid && addClientForm.get('clientCompany').touched">
+                                            <small
+                                                *ngIf="addClientForm.get('clientCompany').invalid && addClientForm.get('clientCompany').touched"
+                                                class="text-danger"> *Company is required</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="submit-section">
+                        <button class="btn btn-primary submit-btn">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /Edit Client Modal -->
+
+<!-- Delete Client Modal -->
+<div class="modal custom-modal fade" id="delete_client" role="dialog">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="form-header">
+                    <h3>Delete Client</h3>
+                    <p>Are you sure want to delete?</p>
+                </div>
+                <div class="modal-btn delete-action">
+                    <div class="row">
+                        <div class="col-6">
+                            <a class="btn btn-primary continue-btn">Delete</a>
+                        </div>
+                        <div class="col-6">
+                            <a data-bs-dismiss="modal" class="btn btn-primary cancel-btn">Cancel</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /Delete Client Modal -->
